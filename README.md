@@ -3,15 +3,13 @@ Online Judge platforms, solving coding test
 
 ## Requirements
 - vscode
- - extension: Code Runner
- - extension: 
 - node 
+- BaekjoonHub(https://github.com/BaekjoonHub/BaekjoonHub)
 
 - 1. [Baekjoon Online Judge](https://www.acmicpc.net/)
 - 2. [Programmers](https://programmers.co.kr/)
 
 ## Baekjoon Online Judge
-directory name: `baekjoon/`
 connected with Solved.ac:
-[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=brent93)](https://solved.ac/brent93)
+### [![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=brent93)](https://solved.ac/brent93)
 
