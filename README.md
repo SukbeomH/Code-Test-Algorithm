@@ -5,6 +5,7 @@ Online Judge platforms, solving coding test
 - vscode
 - node 
 - [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub)
+- Code Runner (vscode extension)
 
 ## Where to solve
 - [Baekjoon Online Judge](https://www.acmicpc.net/)
