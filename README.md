@@ -4,10 +4,11 @@ Online Judge platforms, solving coding test
 ## Requirements
 - vscode
 - node 
-- BaekjoonHub(https://github.com/BaekjoonHub/BaekjoonHub)
+- [BaekjoonHub](https://github.com/BaekjoonHub/BaekjoonHub)
 
-- 1. [Baekjoon Online Judge](https://www.acmicpc.net/)
-- 2. [Programmers](https://programmers.co.kr/)
+## Where to solve
+- [Baekjoon Online Judge](https://www.acmicpc.net/)
+- [Programmers](https://programmers.co.kr/)
 
 ## Baekjoon Online Judge
 connected with Solved.ac:
