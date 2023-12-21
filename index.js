@@ -1,16 +1,28 @@
 // require('fs').readFileSync('/dev/stdin')
 // require('fs').readFileSync('testCase.txt')
-const input = require('fs').readFileSync('testCase.txt').toString().split('\n')
+const input = require('fs').readFileSync('/dev/stdin').toString();
 
-const line = input;
-const t = Number(line[0]);
 
-let number = 0n;
-let answer = '';
-for (let i = 1; i <= t; i++) {
-  const [a, b] = line[i].split(' ');
-  number = BigInt(a) ** BigInt(b);
-  answer += number % 10n + '\n';
-}
+const lines = input.split('\n');
+// regex contains a e i o u A E I O U
+const regex = new RegExp('[aeiouAEIOU]');
 
-console.log(answer);
+const answer = lines.map((line) => {
+  if (line === '#') {
+    return;
+  }
+  let count = 0;
+  const chars = [...line];
+
+  chars.forEach((char) => {
+    if (regex.test(char)) {
+      count += 1;
+    }
+  });
+
+  // return count + '\n';
+
+  console.log(count);
+}).join('');
+
+// console.log(answer);
