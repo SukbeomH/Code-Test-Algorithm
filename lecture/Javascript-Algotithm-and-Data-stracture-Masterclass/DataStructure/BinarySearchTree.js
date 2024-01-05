@@ -152,4 +152,74 @@ class BinarySearchTree {
     // 찾는 값이 없으면 false를 리턴한다.
     return false;
   }
+
+  // BFS (너비 우선 탐색)
+  BFS() {
+    let queue = [];
+    let visited = [];
+    let current = this.root;
+    queue.push(current);
+    while(queue.length) {
+      current = queue.shift();
+      visited.push(current.value);
+      if (current.left) queue.push(current.left);
+      if (current.right) queue.push(current.right);
+    }
+    return visited;
+  }
+  recursiveBFS() {
+    let queue = [];
+    let visited = [];
+    let current = this.root;
+    queue.push(current);
+    function traverse() {
+      if (queue.length === 0) return;
+      current = queue.shift();
+      visited.push(current.value);
+      if (current.left) queue.push(current.left);
+      if (current.right) queue.push(current.right);
+      traverse();
+    }
+    traverse();
+    return visited;
+  }
+
+  // DFS (깊이 우선 탐색) - 전위 순회
+  DFSPreOrder() {
+    let visited = [];
+    let current = this.root;
+    function traverse(node) {
+      visited.push(node.value);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    }
+    traverse(current);
+    return visited;
+  }
+
+  // DFS (깊이 우선 탐색) - 후위 순회
+  DFSPostOrder() {
+    let visited = [];
+    let current = this.root;
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      visited.push(node.value);
+    }
+    traverse(current);
+    return visited;
+  }
+
+  // DFS (깊이 우선 탐색) - 중위 순회
+  DFSInOrder() {
+    let visited = [];
+    let current = this.root;
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      visited.push(node.value);
+      if (node.right) traverse(node.right);
+    }
+    traverse(current);
+    return visited;
+  }
 }
