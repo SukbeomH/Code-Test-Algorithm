@@ -163,24 +163,22 @@ class DoublyLinkedList {
     }
   }
 
-  remove(val) {
-    // 리스트가 비어있을 때
-    if (!this.head) return undefined;
-    // 리스트가 비어있지 않을 때
+  remove(index) {
+    // 인덱스가 범위를 벗어날 때
+    if (index < 0 || index >= this.length) return undefined;
+    // 인덱스가 리스트의 시작이나 끝일 때
+    else if (index === 0) return this.shift();
+    else if (index === this.length - 1) return this.pop();
+    // 인덱스가 리스트의 시작이나 끝이 아닐 때
     else {
-      let removedNode = this.head;
-      // 리스트의 길이가 1일 때
-      if (this.length === 1) {
-        this.head = null;
-        this.tail = null;
-      }
-      // 리스트의 길이가 1보다 클 때
-      else {
-        this.head = removedNode.next;
-        this.head.prev = null;
-        // 연결이 끊어진 노드의 next를 null로 설정
-        removedNode.next = null;
-      }
+      let removedNode = this.get(index);
+      let prev = removedNode.prev;
+      let next = removedNode.next;
+      prev.next = next;
+      next.prev = prev;
+      // 연결이 끊어진 노드의 prev와 next를 null로 설정
+      removedNode.prev = null;
+      removedNode.next = null;
       // 길이 감소
       this.length--;
 
