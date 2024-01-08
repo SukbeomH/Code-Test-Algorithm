@@ -34,4 +34,36 @@ class Hash {
       if (currentKey === key) return currentValue;
     }
   }
+
+  keys() {
+    let keys = [];
+
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          let [currentKey, currentValue] = this.keyMap[i][j];
+
+          if (!keys.includes(currentKey)) keys.push(currentKey);
+        }
+      }
+    }
+
+    return keys;
+  }
+
+  values() {
+    let values = [];
+
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          let [currentKey, currentValue] = this.keyMap[i][j];
+
+          if (!values.includes(currentValue)) values.push(currentValue);
+        }
+      }
+    }
+
+    return values;
+  }
 }
