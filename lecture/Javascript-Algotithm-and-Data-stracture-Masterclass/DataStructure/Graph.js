@@ -115,4 +115,31 @@ class Graph {
     // return the result
     return result
   }
+
+  BFS(vertex) {
+    const queue = [vertex]
+    const visited = {}
+    const result = []
+
+    // while queue is not empty
+    while (queue.length) {
+      // dequeue a vertex from the queue
+      const currentVertex = queue.shift()
+      // if vertex is not visited
+      if (!visited[currentVertex]) {
+        // add vertex to visited list
+        visited[currentVertex] = true
+        // add vertex to result list
+        result.push(currentVertex)
+        // for each neighbor of vertex
+        this.adjacencyList[currentVertex].forEach(neighbor => {
+          // if neighbor is not visited
+          if (!visited[neighbor]) {
+            // enqueue neighbor
+            queue.push(neighbor)
+          }
+        })
+      }
+    }
+  }
 }
