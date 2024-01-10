@@ -54,4 +54,8 @@ class Graph {
     // return the list
     return this.adjacencyList
   }
+
+  recursiveDFS(vertex) {
+    
+  }
 }
