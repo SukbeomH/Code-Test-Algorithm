@@ -56,6 +56,63 @@ class Graph {
   }
 
   recursiveDFS(vertex) {
-    
+    // create a list to store the result
+    const result = []
+    // create a list to store visited vertices
+    const visited = {}
+    // create a helper function which accepts a vertex
+    const dfs = (vertex) => {
+      // if vertex is empty, return
+      if (!vertex) return
+      // add vertex to visited list
+      visited[vertex] = true
+      // add vertex to result list
+      result.push(vertex)
+      // for each neighbor of vertex
+      this.adjacencyList[vertex].forEach(neighbor => {
+        // if neighbor is not visited
+        if (!visited[neighbor]) {
+          // recursively call dfs on neighbor
+          dfs(neighbor)
+        }
+      })
+    }
+    // invoke the helper function with the starting vertex
+    dfs(vertex)
+
+    // return the result
+    return result
+  }
+
+  iterativeDFS(vertex) {
+    // create a list to store the result
+    const result = []
+    // create a list to store visited vertices
+    const visited = {}
+    // create a stack to store vertices
+    const stack = [vertex]
+    // while stack is not empty
+    while (stack.length) {
+      // pop a vertex from the stack
+      const currentVertex = stack.pop()
+      // if vertex is not visited
+      if (!visited[currentVertex]) {
+        // add vertex to visited list
+        visited[currentVertex] = true
+        // add vertex to result list
+        result.push(currentVertex)
+        // for each neighbor of vertex
+        this.adjacencyList[currentVertex].forEach(neighbor => {
+          // if neighbor is not visited
+          if (!visited[neighbor]) {
+            // push neighbor to stack
+            stack.push(neighbor)
+          }
+        })
+      }
+    }
+
+    // return the result
+    return result
   }
 }
