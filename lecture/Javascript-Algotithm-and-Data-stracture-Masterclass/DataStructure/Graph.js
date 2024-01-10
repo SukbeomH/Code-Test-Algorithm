@@ -63,7 +63,7 @@ class Graph {
     // create a helper function which accepts a vertex
     const dfs = (vertex) => {
       // if vertex is empty, return
-      if (!vertex) return
+      if (!vertex) return null
       // add vertex to visited list
       visited[vertex] = true
       // add vertex to result list
@@ -73,7 +73,7 @@ class Graph {
         // if neighbor is not visited
         if (!visited[neighbor]) {
           // recursively call dfs on neighbor
-          dfs(neighbor)
+          return dfs(neighbor)
         }
       })
     }
