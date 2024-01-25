@@ -1,16 +1,13 @@
 function solution(sizes) {
-    let width = []; 
-    let height = [];
+    let width = 0; 
+    let height = 0;
     
     sizes
         .map((ele) => ele.sort((a, b) => b - a))
         .forEach(([w, h]) => {
-            width.push(w);
-            height.push(h);
+            if (w > width) width = w;
+            if (h > height) height = h;
         })
     
-    width.sort((a, b) => b - a);
-    height.sort((a, b) => b - a);
-    
-    return width[0] * height[0];
+    return width * height;
 }
