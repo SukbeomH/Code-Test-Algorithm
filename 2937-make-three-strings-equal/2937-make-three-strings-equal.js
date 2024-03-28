@@ -10,7 +10,7 @@ var findMinimumOperations = function(s1, s2, s3) {
     let cnt = 0;
     
     for (let i = 0; i < min; i ++) {
-        if (s1[i] !== s2[i] || s2[i] !== s3[i] || s3[i] !== s1[i]) {
+        if (s1[i] !== s2[i] || s2[i] !== s3[i]) {
             if (i === 0) {
                 return -1;
             }
