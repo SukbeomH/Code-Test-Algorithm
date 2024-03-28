@@ -5,24 +5,25 @@
 var maximumTime = function(time) {
     let hour = "";
     let min = "";
-    const temp = time.split(":");
     const maxH = 23;
     const maxM = 59;
     let i = 9;
     
-    if (temp[0] === "??") {
+    if (time.split(":")[0] === "??") {
         hour = maxH;
     }
-    if (temp[1] === "??") {
+    if (time.split(":")[1] === "??") {
         min = maxM;
     }
     
     while (hour === "" || min === "") {
-        if (Number(temp[0].replace("?", i)) <= maxH && hour === "") {
-            hour = temp[0].replace("?", i);
+        const temp = time;
+        const hm = temp.replaceAll("?", i).split(":");
+        if (Number(hm[0]) <= maxH && hour === "") {
+            hour = hm[0];
         }
-        if (Number(temp[1].replace("?", i)) <= maxM && min === "") {
-            min = temp[1].replace("?", i);
+        if (Number(hm[1]) <= maxM && min === "") {
+            min = hm[1];
         }
         i--;
     }
