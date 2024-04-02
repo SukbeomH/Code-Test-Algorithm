@@ -4,7 +4,6 @@
  * @return {boolean}
  */
 var wordPattern = function(pattern, s) {
-    let answer = true;
     const type = [...pattern];
     const word = s.split(" ");
     let map = new Map();
